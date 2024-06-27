@@ -1,14 +1,33 @@
+"use client";
+
+import Link from "next/link";
 import React from "react";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { TiThMenu } from "react-icons/ti";
 
 const MobileMenu = () => {
   return (
-    <div>
-      <div className="flex flex-col gap-[4.5px] cursor-pointer">
-        <div className="w-6 h-1 bg-blue-500 rounded-sm" />
-        <div className="w-6 h-1 bg-blue-500 rounded-sm" />
-        <div className="w-6 h-1 bg-blue-500 rounded-sm" />
-      </div>
-    </div>
+    <Sheet>
+      <SheetTrigger className="md:hidden">
+        <TiThMenu className="size-8 text-blue-500" />
+      </SheetTrigger>
+      <SheetContent>
+        <div className="size-full flex flex-col items-center justify-center gap-8 font-medium text-xl">
+          <Link href="/">Home</Link>
+          <Link href="/">Friends</Link>
+          <Link href="/">Groups</Link>
+          <Link href="/">Stories</Link>
+          <Link href="/">Login</Link>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 
