@@ -1,21 +1,26 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import FriendRequests from "./FriendRequests";
 import Birthdays from "./Birthdays";
 import UserInformationCard from "./UserInformationCard";
 import UserMediaCard from "./UserMediaCard";
 import Ad from "./Ad";
+import { User } from "@prisma/client";
 
 type RightMenuProps = {
-  userId?: string;
+  user: User;
 };
 
-const RightMenu: FC<RightMenuProps> = ({ userId }) => {
+const RightMenu: FC<RightMenuProps> = ({ user }) => {
   return (
     <div className="flex flex-col gap-6">
-      {userId ? (
+      {user ? (
         <>
-          <UserInformationCard userId={userId} />
-          <UserMediaCard userId={userId} />
+          <Suspense fallback={"loading..."}>
+            <UserInformationCard user={user} />
+          </Suspense>
+          <Suspense fallback={"loading..."}>
+            <UserMediaCard user={user} />
+          </Suspense>
         </>
       ) : null}
       <FriendRequests />
