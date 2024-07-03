@@ -5,7 +5,7 @@ import { abbreviateNumber } from "@/lib/utils";
 import prisma from "@/lib/client";
 import { notFound } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
-import Feed from "@/components/Feed/Feed";
+import Feed from "@/components/Feed";
 
 const ProfilePage = async ({ params }: { params: { username: string } }) => {
   const username = params.username;

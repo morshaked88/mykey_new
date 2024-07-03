@@ -1,6 +1,8 @@
-import { LeftMenu, RightMenu, Stories, Feed, CreatePost } from "@/components";
+import { LeftMenu, RightMenu, Stories, CreatePost, Feed } from "@/components";
+import { auth } from "@clerk/nextjs/server";
 
 const Homepage = () => {
+  const { userId } = auth();
   return (
     <div className="flex gap-6 pt-6">
       <div className="hidden xl:block w-[20%]">

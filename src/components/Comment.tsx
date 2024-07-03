@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { abbreviateNumber } from "../../lib/utils";
+import { abbreviateNumber } from "@/lib/utils";
 
 const Comment = () => {
   return (
